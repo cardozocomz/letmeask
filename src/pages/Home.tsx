@@ -22,7 +22,7 @@ export function Home(){
       await signInWithGoogle()
     }
 
-    history.push("/roons/new");
+    history.push("/rooms/new");
   };
 
   async function handleJoinRoom(event: FormEvent) {
@@ -32,15 +32,19 @@ export function Home(){
       return;
     }
 
-    const roomRef = await database.ref(`roons/${roomCode}`).get();
+    const roomRef = await database.ref(`rooms/${roomCode}`).get();
 
     if (!roomRef.exists()) {
       alert('Room does not exists.');
       return;
     }
 
-    history.push(`/roons/${roomCode}`); 
+    if (roomRef.val().endedAt) {
+      alert('Room already closed');
+      return;
+    }
 
+    history.push(`/rooms/${roomCode}`); 
   }
 
   return(
