@@ -1,6 +1,5 @@
 import classnames from 'classnames';
 import { ReactNode } from 'react';
-import { isatty } from 'tty';
 import './styles.scss'
 
 type QuestionProps = {

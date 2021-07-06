@@ -2,18 +2,22 @@ import { Link, useHistory } from 'react-router-dom'
 import { FormEvent, useState} from 'react';
 
 import illustrationImg from '../assets/images/illustration.svg';
-import logoImg from '../assets/images/logo.svg';
+import logoLightImg from '../assets/images/logoLight.svg';
+import logoDarkImg from '../assets/images/logoDark.svg';
 
 import { Button } from '../components/Button';
 import { useAuth } from '../hooks/useAuth';
 
 import '../styles/auth.scss';
 import { database } from '../services/firebase';
+import { ThemeButton } from '../components/ThemeButton';
+import { useTheme } from '../hooks/useTheme';
 
 export function NewRoom(){
   const { user } = useAuth();
   const [newRoom, setNewRoom] = useState('');
   const history = useHistory();
+  const { theme } = useTheme();
 
   async function handleCreateRoom(event: FormEvent) {
     event.preventDefault();
@@ -41,7 +45,11 @@ export function NewRoom(){
       </aside>      
       <main>
         <div className="main-content">
-          <img src={logoImg} alt="Letmeask" />          
+        { theme === 'light' ? (
+            <img src={logoDarkImg} alt="Letmeask" />
+          ) : (
+            <img src={logoLightImg} alt="Letmeask" />
+          ) }           
           <h2>Criar uma nova sala</h2>
           <form onSubmit={handleCreateRoom}>
             <input
@@ -57,6 +65,9 @@ export function NewRoom(){
           <p>Quer entrar em uma sala existente? <Link to="/">clique aqui</Link> </p>
         </div>
       </main>
+      <div className="theme-container">
+        <ThemeButton/>
+      </div>   
     </div>
   )
 }

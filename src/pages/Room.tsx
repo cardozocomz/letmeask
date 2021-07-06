@@ -1,8 +1,8 @@
-import { useEffect } from 'react';
 import { FormEvent, useState } from 'react';
-import { useParams } from 'react-router-dom'
+import { Link, useHistory, useParams } from 'react-router-dom'
 
-import logoImg from '../assets/images/logo.svg';
+import logoLightImg from '../assets/images/logoLight.svg';
+import logoDarkImg from '../assets/images/logoDark.svg';
 
 import { Button } from '../components/Button';
 import { Question } from '../components/Question/Index';
@@ -12,6 +12,8 @@ import { useRoom } from '../hooks/useRoom';
 import { database } from '../services/firebase';
 
 import '../styles/room.scss';
+import { useTheme } from '../hooks/useTheme';
+import { ThemeButton } from '../components/ThemeButton';
 
 type RoomParams = {
   id: string;
@@ -23,6 +25,8 @@ export function Room() {
   const roomId = params.id;
   const [newQuestion, setNewQuestion] = useState('');
   const { title, questions } = useRoom(roomId);
+  const { theme } = useTheme();
+  const history = useHistory();
 
   async function handleSendQuestion(event: FormEvent) {
     event.preventDefault();
@@ -61,12 +65,20 @@ export function Room() {
   }
 
   return(
-    <div id="page-room">
+    <div id="page-room"> 
       <header>
         <div className="content">
-        <img src={logoImg} alt="letmeask" />
+            { theme === 'light' ? (
+                <img src={logoDarkImg} alt="Letmeask" onClick={() => history.push("/")}/>
+              ) : (
+                <img src={logoLightImg} alt="Letmeask" onClick={() => history.push("/")}/>
+              )
+            }                     
         <RoomCode code={roomId}/>
         </div>
+        <div className="theme-container">
+          <ThemeButton/>
+        </div>           
       </header>
 
       <main>

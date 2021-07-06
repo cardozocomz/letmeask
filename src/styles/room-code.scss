@@ -3,14 +3,14 @@
   border-radius: 8px;
   overflow: hidden;
 
-  background: #FFF;
-  border: 1px solid #835afd;
+  background: var(--white);//#FFF;
+  border: 1px solid var(--purple);//#835afd;
   cursor: pointer;
 
   display: flex;
 
   div {
-    background:  #835afd;
+    background:  var(--purple);//#835afd;
     padding: 12px;
     display: flex;
     justify-content: center;
@@ -23,6 +23,7 @@
     flex: 1;
     padding: 0 16px 0 12px;
     width: 240px;
+    color: var(--black);
 
     font-size: 14px;
     font-weight: 500;

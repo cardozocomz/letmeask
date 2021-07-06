@@ -1,12 +1,43 @@
+:root {
+  --purple : #835afd;
+  --purple-aside : #835afd;
+  --white: #f8f8f8;
+  --white2: #f8f8f8;
+  --white-highlighted: #F4F0FF;
+  --white-answered: #DBDCDD;
+  --grey: #737380;
+  --pink: #e559f9;
+  --orange: #ea4335;    
+  --light-grey: #a8a8b3;
+  --outline: #000;
+  --black: #29292e;
+  --shadow: rgba(0, 0, 0, 0.04);
+  --brightness: brightness(0.7);
+  &.dark {
+    --purple-aside : #4d4d4d;
+    --white:#181818;
+    --grey: #DCDCE0;
+    --light-grey: #afafb3;
+    --outline: #FFF;
+    --black: #FFF;
+    --shadow: rgba(238, 235, 235, 0.04);
+    --white-highlighted: #353738;
+    --white-answered: #4b4c4d;
+    --brightness: brightness(1.3);
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box ;
+  transition-property: background;
+  transition-duration: 0.7s;
 }
 
 body {
-  background: #f8f8f8;
-  color: #29292e;
+  background: var(--white);
+  color: var(--black);
 }
 
 body, input, button, textarea {

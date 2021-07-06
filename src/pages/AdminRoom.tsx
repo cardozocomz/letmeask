@@ -1,6 +1,6 @@
 import { useHistory, useParams } from 'react-router-dom'
 
-import logoImg from '../assets/images/logo.svg';
+import logoImg from '../assets/images/logoDark.svg';
 import deleteImg from '../assets/images/delete.svg';
 import checkImg from '../assets/images/check.svg';
 import answerImg from '../assets/images/answer.svg';
@@ -12,6 +12,7 @@ import { useRoom } from '../hooks/useRoom';
 
 import '../styles/room.scss';
 import { database } from '../services/firebase';
+import { ThemeButton } from '../components/ThemeButton';
 
 type RoomParams = {
   id: string;
@@ -59,6 +60,9 @@ export function AdminRoom() {
             <Button isOutlined onClick={handleEndRoom}>Encerrar Sala</Button>          
           </div>
         </div>
+        <div className="theme-container">
+          <ThemeButton/>
+        </div>           
       </header>
 
       <main>
