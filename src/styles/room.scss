@@ -5,7 +5,8 @@
       width: 100%;
       align-items: center;
       justify-content: flex-end;
-      padding: 1rem 1rem 0 0;
+      padding-left: 1rem;      
+      flex: 1;
     } 
 
     header {
@@ -15,8 +16,7 @@
       align-items: center;
       justify-content: space-evenly;
 
-      .content {
-        max-width: 70rem;
+      .content {        
         width: 100%;
         margin: 0 auto;
         display: flex;
