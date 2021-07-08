@@ -1,5 +1,5 @@
 import { FormEvent, useState } from 'react';
-import { Link, useHistory, useParams } from 'react-router-dom'
+import { useHistory, useParams } from 'react-router-dom'
 
 import logoLightImg from '../assets/images/logoLight.svg';
 import logoDarkImg from '../assets/images/logoDark.svg';
@@ -65,8 +65,8 @@ export function Room() {
   }
 
   return(
-    <div id="page-room"> 
-      <header>
+    <div id="page-room">     
+      <header>      
         <div className="content">
             { theme === 'light' ? (
                 <img src={logoDarkImg} alt="Letmeask" onClick={() => history.push("/")}/>
@@ -75,12 +75,13 @@ export function Room() {
               )
             }                     
         <RoomCode code={roomId}/>
-        </div>
+        </div>   
+        
         <div className="theme-container">
           <ThemeButton/>
-        </div>           
-      </header>
-
+        </div>                
+        
+      </header>      
       <main>
         <div className="room-title">
           <h1>Sala {title}</h1>

@@ -42,32 +42,36 @@ export function NewRoom(){
         <img src={illustrationImg} alt="Ilustração simbolizando perguntas e respostas" />   
         <strong>Crie salas de Q&amp;A ao-vivo</strong>
         <p>Tire as dúvidas da sua audiência em tempo-real</p>
-      </aside>      
-      <main>
-        <div className="main-content">
-        { theme === 'light' ? (
-            <img src={logoDarkImg} alt="Letmeask" />
-          ) : (
-            <img src={logoLightImg} alt="Letmeask" />
-          ) }           
-          <h2>Criar uma nova sala</h2>
-          <form onSubmit={handleCreateRoom}>
-            <input
-              type="text"
-              placeholder="Nome da sala"
-              onChange={event => setNewRoom(event.target.value)}
-              value={newRoom}
-            />
-            <Button type="submit">
-              Criar sala
-            </Button>
-          </form>
-          <p>Quer entrar em uma sala existente? <Link to="/">clique aqui</Link> </p>
-        </div>
-      </main>
-      <div className="theme-container">
-        <ThemeButton/>
-      </div>   
+      </aside>
+      <div className="pre-main">
+        <div className="theme-container">
+            <ThemeButton/>
+        </div>        
+        <main>
+          <div className="after-main">
+            <div className="main-content">
+            { theme === 'light' ? (
+                <img src={logoDarkImg} alt="Letmeask" />
+              ) : (
+                <img src={logoLightImg} alt="Letmeask" />
+              ) }           
+              <h2>Criar uma nova sala</h2>
+              <form onSubmit={handleCreateRoom}>
+                <input
+                  type="text"
+                  placeholder="Nome da sala"
+                  onChange={event => setNewRoom(event.target.value)}
+                  value={newRoom}
+                />
+                <Button type="submit">
+                  Criar sala
+                </Button>
+              </form>
+              <p>Quer entrar em uma sala existente? <Link to="/">clique aqui</Link> </p>
+            </div>
+          </div>
+        </main>
+      </div>
     </div>
   )
 }
